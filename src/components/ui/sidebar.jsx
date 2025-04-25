@@ -16,7 +16,6 @@ const Sidebar = ({ setSelectedfood, selectedfoodId }) => {
     const handleResize = () => {
       const mobile = window.innerWidth < 768;
       setIsMobile(mobile);
-      // Close dropdown if resizing from mobile to desktop
       if (!mobile) {
         setDropDown(false);
       }

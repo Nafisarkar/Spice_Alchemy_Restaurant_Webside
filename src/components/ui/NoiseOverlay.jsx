@@ -4,21 +4,21 @@ import * as THREE from "three";
 
 const fragmentShader = `
     uniform vec2 u_resolution;
-    uniform vec3 u_color; //random:true
-    uniform bool u_color_random; //ignore:true
-    uniform float u_size; //units:px, min:1, max: 256, step:1
-    uniform float u_vignette; //units:%, step:0.001
-    uniform float u_amount; //units:%
-    uniform bool u_opacity_random; //ignore:true
-    uniform float u_rotation; //units:°, min:0, max:360, step:1, random:true
-    uniform bool u_rotation_random; //ignore:true
+    uniform vec3 u_color;
+    uniform bool u_color_random;
+    uniform float u_size;
+    uniform float u_vignette;
+    uniform float u_amount;
+    uniform bool u_opacity_random;
+    uniform float u_rotation;
+    uniform bool u_rotation_random;
     uniform bool u_shape[7];
     uniform sampler2D u_shape_image;
-    uniform vec2 u_shape_image_resolution; //ignore:true
-    uniform float u_random_seed; //ignore:true
-    uniform float u_aa_passes; //ignore:true
-    uniform float u_time; // Added for potential time-based effects
-    uniform vec2 u_mouse; // Added for potential mouse-based effects
+    uniform vec2 u_shape_image_resolution;
+    uniform float u_random_seed;
+    uniform float u_aa_passes;
+    uniform float u_time;
+    uniform vec2 u_mouse;
 
     float vignette(float amount){
           vec2 position = (gl_FragCoord.xy / u_resolution) - vec2(0.5);
@@ -73,10 +73,10 @@ const fragmentShader = `
 
     void staticNoise(vec3 color, float scale, float distribution, float rotation, bool random_opacity, bool random_rotation, bool multicolor){
         vec2 st = gl_FragCoord.xy / u_resolution.x;
-        st *= u_resolution / scale; // Scale the coordinate system
+        st *= u_resolution / scale;
 
-        vec2 ipos = floor(st);  // get the integer coords
-        vec2 fpos = fract(st);  // get the fractional coords
+        vec2 ipos = floor(st);
+        vec2 fpos = fract(st);
         st = fpos;
 
         if (random_rotation == true) {
@@ -101,10 +101,10 @@ const fragmentShader = `
 
         float shape = 1.;
 
-        if(u_shape[0]){ // square
+        if(u_shape[0]){
              gl_FragColor = vec4(vec3(color),step(1.0 - distribution,amt) * opacity);
-        } else if(u_shape[1]){ // circle
-             gl_FragColor = vec4(vec3(color),step(1.0 - distribution,amt) * opacity); // Placeholder
+        } else if(u_shape[1]){
+             gl_FragColor = vec4(vec3(color),step(1.0 - distribution,amt) * opacity);
         }
         else {
              gl_FragColor = vec4(vec3(color),step(1.0 - distribution,amt) * opacity);
@@ -116,12 +116,12 @@ const fragmentShader = `
 
          vec2 position = (gl_FragCoord.xy / u_resolution) - vec2(0.5);
          float dist = length(position);
-         float vig = smoothstep(0.5, 0.2, dist); // Example vignette values
-         gl_FragColor.rgb *= vig; // Multiply color by vignette
+         float vig = smoothstep(0.5, 0.2, dist);
+         gl_FragColor.rgb *= vig;
 
-         gl_FragColor.rgb = mix(gl_FragColor.rgb, vec3(0.0), 0.03); // Mix with black slightly
+         gl_FragColor.rgb = mix(gl_FragColor.rgb, vec3(0.0), 0.03);
 
-         gl_FragColor.a *= 0.2; // Match the 0.2 opacity
+         gl_FragColor.a *= 0.2;
     }
 `;
 
@@ -229,13 +229,13 @@ const NoiseOverlay = ({ amount, size, vignette, colorRandom }) => {
   return (
     <div
       style={{
-        position: "fixed", // Or 'absolute' if relative to a specific container
+        position: "fixed",
         top: 0,
         left: 0,
         width: "100vw",
         height: "100vh",
-        zIndex: 10, // Overlay z-index
-        pointerEvents: "none", // Make sure this is correctly applied
+        zIndex: 10,
+        pointerEvents: "none",
       }}
     >
       <Canvas

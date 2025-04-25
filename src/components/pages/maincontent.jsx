@@ -2,7 +2,6 @@ import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Maincontent = ({ foodItem }) => {
-  // Fallback message if no item is selected
   if (!foodItem) {
     return (
       <div className="bg-[#D6BD98] flex-grow h-full flex flex-col items-center lg:justify-center font-orbit p-8 md:p-10 lg:p-12 overflow-y-auto ">
@@ -11,24 +10,13 @@ const Maincontent = ({ foodItem }) => {
     );
   }
 
-  // Destructure data for easier access
   const { id, name, image, title, subtitle, pairitems, price } = foodItem;
 
   return (
-    // Keep relative positioning for potential future absolute elements inside, but watermark is now fixed
     <div className="bg-[#D6BD98] flex-grow h-full flex flex-col items-start lg:justify-center font-orbit p-8 md:p-10 lg:p-12 overflow-y-auto relative">
-      {/* Main content container */}
       <div className="flex flex-col items-center gap-4 w-full max-w-5xl pb-10">
-        {" "}
-        {/* Added padding-bottom to prevent overlap with fixed watermark */}
-        {/* Image and Details Container: Add justify-center to center content horizontally within the row on lg screens */}
         <div className="flex flex-col lg:flex-row items-center justify-center gap-8 md:gap-12 lg:gap-20 w-full">
-          {/* Relative container for Image and Name */}
-          {/* Adjusted margin-top to ensure space for absolute h1 */}
           <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:w-[506px] flex-shrink-0 mt-8 ml-4 z-0">
-            {/* Absolute positioned Name */}
-
-            {/* Image - Wrap with AnimatePresence */}
             <AnimatePresence mode="wait">
               <motion.h1
                 key={id || name}
@@ -55,7 +43,6 @@ const Maincontent = ({ foodItem }) => {
               />
             </AnimatePresence>
           </div>
-          {/* Text Details: Add lg:text-left */}
           <AnimatePresence mode="wait">
             <motion.div
               key={id || title}
@@ -65,15 +52,12 @@ const Maincontent = ({ foodItem }) => {
               transition={{ duration: 0.5, ease: "easeInOut" }}
               className="w-full lg:w-[320px] mt-4 lg:mt-0 text-center lg:text-left"
             >
-              {/* Title */}
               <h1 className="text-2xl md:text-3xl lg:text-[30px] wrap-normal font-semibold">
                 {title}
               </h1>
-              {/* Subtitle */}
               <p className="text-sm md:text-base lg:text-[14px] wrap-normal pt-2 pb-4 leading-relaxed md:leading-7 lg:leading-8 opacity-80">
                 {subtitle}
               </p>
-              {/* Pairings and Price */}
               <div>
                 <h1 className="text-base md:text-lg lg:text-[18px] wrap-normal pb-2 font-medium">
                   Pair It With -
@@ -107,7 +91,6 @@ const Maincontent = ({ foodItem }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
-        // Position fixed at bottom center for all screen sizes
         className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-10 opacity-50 hidden lg:block lg:text-[12px] text-[#40534C]/70"
       >
         <a
