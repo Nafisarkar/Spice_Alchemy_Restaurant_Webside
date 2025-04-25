@@ -1,7 +1,7 @@
 const foods = [
   {
     name: "Breakfast",
-    image: "/src/assets/breakfast1.jpg",
+    image: "/assets/breakfast1.jpg",
     title: "Classic Breakfast Sandwich",
     subtitle:
       "Fluffy eggs, melted cheese, crispy bacon, stacked between toasted sourdough.",
@@ -15,7 +15,7 @@ const foods = [
   },
   {
     name: "Lunch",
-    image: "/src/assets/lunch1.jpg",
+    image: "/assets/lunch1.jpg",
     title: "Golden Mughali Delight",
     subtitle:
       "Fragrant long-grain rice slow-cooked with marinated meat, saffron, and regional spices.",
@@ -29,7 +29,7 @@ const foods = [
   },
   {
     name: "Dinner",
-    image: "/src/assets/dinner1.jpg",
+    image: "/assets/dinner1.jpg",
     title: "Royal Butter Chicken",
     subtitle:
       "North Indian classic—charred tandoori chicken slow-cooked in buttery tomato magic.",
@@ -38,7 +38,7 @@ const foods = [
   },
   {
     name: "Drinks",
-    image: "/src/assets/drink1.jpg",
+    image: "/assets/drink1.jpg",
     title: "Citrus Mint Iced Tea",
     subtitle:
       "Chilled black tea infused with fresh lime and mint—served over ice for the ultimate cool-down.",
