@@ -1,7 +1,14 @@
+// Import images directly
+import breakfast1Img from "../assets/breakfast1.jpg";
+import lunch1Img from "../assets/lunch1.jpg";
+import dinner1Img from "../assets/dinner1.jpg";
+import drink1Img from "../assets/drink1.jpg";
+
 const foods = [
   {
+    id: 1, // Added IDs for consistency and potential key usage
     name: "Breakfast",
-    image: "/assets/breakfast1.jpg",
+    image: breakfast1Img, // Use imported variable
     title: "Classic Breakfast Sandwich",
     subtitle:
       "Fluffy eggs, melted cheese, crispy bacon, stacked between toasted sourdough.",
@@ -14,8 +21,9 @@ const foods = [
     price: "500",
   },
   {
+    id: 2, // Added IDs
     name: "Lunch",
-    image: "/assets/lunch1.jpg",
+    image: lunch1Img, // Use imported variable
     title: "Golden Mughali Delight",
     subtitle:
       "Fragrant long-grain rice slow-cooked with marinated meat, saffron, and regional spices.",
@@ -28,8 +36,9 @@ const foods = [
     price: "899",
   },
   {
+    id: 3, // Added IDs
     name: "Dinner",
-    image: "/assets/dinner1.jpg",
+    image: dinner1Img, // Use imported variable
     title: "Royal Butter Chicken",
     subtitle:
       "North Indian classic—charred tandoori chicken slow-cooked in buttery tomato magic.",
@@ -37,8 +46,9 @@ const foods = [
     price: "699",
   },
   {
+    id: 4, // Added IDs
     name: "Drinks",
-    image: "/assets/drink1.jpg",
+    image: drink1Img, // Use imported variable
     title: "Citrus Mint Iced Tea",
     subtitle:
       "Chilled black tea infused with fresh lime and mint—served over ice for the ultimate cool-down.",
